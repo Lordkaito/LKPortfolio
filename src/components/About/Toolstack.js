@@ -5,27 +5,32 @@ import {
   SiPostman,
   SiSlack,
   SiVercel,
-  SiMacos,
+  SiDocker,
 } from "react-icons/si";
+import { DiGithubBadge } from "react-icons/di";
+import { FaFigma } from "react-icons/fa";
+
+const tools = [
+  { icon: <SiVisualstudiocode />, name: "VS Code" },
+  { icon: <DiGithubBadge />, name: "GitHub" },
+  { icon: <SiPostman />, name: "Postman" },
+  { icon: <SiVercel />, name: "Vercel" },
+  { icon: <SiDocker />, name: "Docker" },
+  { icon: <FaFigma />, name: "Figma" },
+  { icon: <SiSlack />, name: "Slack" },
+];
 
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMacos />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostman />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiSlack />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVercel />
-      </Col>
+      {tools.map((tool, i) => (
+        <Col xs={4} md={2} className="tech-icons" key={i}>
+          <div className="tech-icon-wrapper">
+            {tool.icon}
+            <span>{tool.name}</span>
+          </div>
+        </Col>
+      ))}
     </Row>
   );
 }

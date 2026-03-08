@@ -1,66 +1,48 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { CgCPlusPlus } from "react-icons/cg";
 import {
   DiJavascript1,
   DiReact,
   DiNodejs,
   DiMongodb,
-  DiPython,
   DiGit,
-  DiJava,
   DiRuby,
 } from "react-icons/di";
 import {
-  SiRedis,
-  SiFirebase,
   SiNextdotjs,
-  SiSolidity,
-  SiPostgresql,
-  SiRedux,
   SiTypescript,
-  SiRailway,
+  SiRedux,
+  SiPostgresql,
   SiRubyonrails,
   SiExpress,
 } from "react-icons/si";
-import { TbBrandGolang } from "react-icons/tb";
+
+const skills = [
+  { icon: <DiJavascript1 />, name: "JavaScript" },
+  { icon: <SiTypescript />, name: "TypeScript" },
+  { icon: <DiReact />, name: "React" },
+  { icon: <SiRedux />, name: "Redux" },
+  { icon: <SiNextdotjs />, name: "Next.js" },
+  { icon: <DiNodejs />, name: "Node.js" },
+  { icon: <SiExpress />, name: "Express" },
+  { icon: <DiRuby />, name: "Ruby" },
+  { icon: <SiRubyonrails />, name: "Rails" },
+  { icon: <DiMongodb />, name: "MongoDB" },
+  { icon: <SiPostgresql />, name: "PostgreSQL" },
+  { icon: <DiGit />, name: "Git" },
+];
 
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiExpress />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiRedux />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiTypescript />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiRuby />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiRubyonrails />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostgresql />
-      </Col>
+      {skills.map((skill, i) => (
+        <Col xs={4} md={2} className="tech-icons" key={i}>
+          <div className="tech-icon-wrapper">
+            {skill.icon}
+            <span>{skill.name}</span>
+          </div>
+        </Col>
+      ))}
     </Row>
   );
 }

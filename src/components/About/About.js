@@ -1,16 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
 
 function About() {
   return (
     <Container fluid className="about-section">
-      <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
           <Col
@@ -21,8 +18,16 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              Know Who <strong className="purple">I'M</strong>
+            <p className="section-label">// who am i</p>
+            <h1
+              style={{
+                fontSize: "2rem",
+                fontFamily: "var(--font-mono)",
+                paddingBottom: "20px",
+                color: "var(--text-primary)",
+              }}
+            >
+              Know Who <span className="cyan">I'M</span>
             </h1>
             <Aboutcard />
           </Col>
@@ -31,17 +36,16 @@ function About() {
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
-        <h1 className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
-        </h1>
 
+        <h1 className="project-heading">
+          <span className="cyan">// </span>professional skillset
+        </h1>
         <Techstack />
 
         <h1 className="project-heading">
-          <strong className="purple">Tools</strong> I use
+          <span className="cyan">// </span>tools i use
         </h1>
         <Toolstack />
 
