@@ -1,8 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+/* index.css */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", serif !important;
+  font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  background-color: #050a0f;
+  color: #e8f4f8;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
