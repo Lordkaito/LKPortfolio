@@ -1,66 +1,51 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  let year = new Date().getFullYear();
   return (
     <Container fluid className="footer">
-      <Row>
-        <Col md="4" className="footer-copywright">
-          <h3>Designed and Developed by Lordkaito_</h3>
+      <Row className="align-items-center justify-content-between">
+        <Col md={4} className="footer-copywright">
+          <h3>
+            designed &amp; built by{" "}
+            <span style={{ color: "var(--accent-primary)" }}>lordkaito_</span>
+          </h3>
         </Col>
-        <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year} LK</h3>
+        <Col md={4} className="footer-copywright">
+          <h3>© {year} isai cespedes</h3>
         </Col>
-        <Col md="4" className="footer-body">
+        <Col md={4} className="footer-body">
           <ul className="footer-icons">
-            <li className="social-icons">
+            <li>
               <a
                 href="https://github.com/Lordkaito"
-                style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <AiFillGithub />
               </a>
             </li>
-            <li className="social-icons">
+            <li>
               <a
                 href="https://twitter.com/Lordkaito_"
-                style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <AiOutlineTwitter />
               </a>
             </li>
-            <li className="social-icons">
+            <li>
               <a
                 href="https://www.linkedin.com/in/isaicespedes/"
-                style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaLinkedinIn />
               </a>
             </li>
-            {/* <li className="social-icons">
-              <a
-                href="https://www.instagram.com/soumyajit4419"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <AiFillInstagram />
-              </a>
-            </li> */}
           </ul>
         </Col>
       </Row>
