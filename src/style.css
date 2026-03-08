@@ -718,3 +718,53 @@ body::before {
 .fp-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .fp-grid { margin-bottom: 3rem; }
 .fp-cta { text-align: center; }
+
+/* ─── Testimonials ───────────────────────────────────────────── */
+.testi-section { background: var(--void-3); padding: 7rem 0; }
+.testi-inner { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+.testi-carousel { position: relative; min-height: 220px; }
+.testi-slide {
+  position: absolute; inset: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.6s ease;
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.testi-slide.testi-active { opacity: 1; pointer-events: auto; position: relative; }
+
+.testi-quote-wrap {
+  border-left: 3px solid var(--cyan); padding: 1.5rem 2rem;
+  background: rgba(0,255,240,0.03); position: relative;
+}
+.testi-mark {
+  font-family: var(--font-display); font-size: 5rem; color: var(--cyan);
+  opacity: 0.15; position: absolute; top: -1rem; left: 1.2rem; line-height: 1;
+}
+.testi-quote {
+  font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.85;
+  color: var(--text-dim); position: relative; z-index: 1;
+}
+.testi-author { display: flex; align-items: center; gap: 1rem; }
+.testi-avatar {
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  background: var(--gold-glow); border: 1px solid var(--gold-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.05rem;
+}
+.testi-name {
+  font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold);
+  letter-spacing: 0.1rem; text-transform: uppercase;
+}
+.testi-role { font-family: var(--font-body); font-size: 0.78rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+.testi-dots { display: flex; justify-content: center; gap: 0.7rem; margin-top: 2rem; }
+.testi-dot {
+  width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--gold-dim);
+  background: transparent; cursor: none; transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.testi-dot-active { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.testi-disclaimer {
+  text-align: center; font-family: var(--font-mono); font-size: 0.62rem;
+  color: var(--text-dim); margin-top: 1.5rem; letter-spacing: 0.1rem; opacity: 0.5;
+}
