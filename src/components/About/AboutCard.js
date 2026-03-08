@@ -10,14 +10,26 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p>
-            Hi, I'm <span className="cyan">Isai Cespedes</span>, a full-stack
-            developer from <span className="cyan">Valencia, Spain</span>.
+            Hi, I'm <span className="cyan">Isaí Céspedes</span>, a full-stack
+            software engineer from{" "}
+            <span className="cyan">Valencia, Spain</span>.
             <br />
             <br />
-            I have 2+ years of professional experience building web products —
-            from Twitch streaming tools and Chrome extensions to REST APIs and
-            full-stack applications. I care deeply about clean code, good DX,
-            and shipping things that actually work.
+            I have <span className="cyan">3+ years</span> of professional
+            experience contributing to scalable web applications in
+            international, remote-first teams. Currently at{" "}
+            <span className="cyan">Stack Builders</span>, I've led frontend
+            migrations, type safety overhauls (resolving 4,000+ TypeScript
+            errors), and developer experience improvements for clients including
+            Twilio, Thrv, and Communico.
+            <br />
+            <br />
+            I specialize in{" "}
+            <span className="cyan">
+              TypeScript, React, and developer experience
+            </span>{" "}
+            — with a strong emphasis on testing, clean code, and shipping
+            reliable software.
           </p>
           <ul
             style={{
@@ -33,7 +45,7 @@ function AboutCard() {
               <AiFillCode /> Building side projects
             </li>
             <li className="about-activity">
-              <TbTerminal2 /> Exploring new stacks
+              <TbTerminal2 /> Improving developer experience
             </li>
           </ul>
           <p
@@ -53,7 +65,7 @@ function AboutCard() {
               fontSize: "0.8rem",
             }}
           >
-            — Isai Cespedes
+            — Isaí Céspedes
           </footer>
         </blockquote>
       </Card.Body>

@@ -15,20 +15,28 @@ import {
   SiPostgresql,
   SiRubyonrails,
   SiExpress,
+  SiGraphql,
+  SiJest,
+  SiPhp,
+  SiEslint,
 } from "react-icons/si";
 
 const skills = [
-  { icon: <DiJavascript1 />, name: "JavaScript" },
   { icon: <SiTypescript />, name: "TypeScript" },
+  { icon: <DiJavascript1 />, name: "JavaScript" },
   { icon: <DiReact />, name: "React" },
-  { icon: <SiRedux />, name: "Redux" },
   { icon: <SiNextdotjs />, name: "Next.js" },
+  { icon: <SiRedux />, name: "Redux" },
   { icon: <DiNodejs />, name: "Node.js" },
   { icon: <SiExpress />, name: "Express" },
+  { icon: <SiGraphql />, name: "GraphQL" },
   { icon: <DiRuby />, name: "Ruby" },
   { icon: <SiRubyonrails />, name: "Rails" },
-  { icon: <DiMongodb />, name: "MongoDB" },
+  { icon: <SiPhp />, name: "PHP" },
   { icon: <SiPostgresql />, name: "PostgreSQL" },
+  { icon: <DiMongodb />, name: "MongoDB" },
+  { icon: <SiJest />, name: "Jest" },
+  { icon: <SiEslint />, name: "ESLint" },
   { icon: <DiGit />, name: "Git" },
 ];
 

@@ -70,23 +70,28 @@ function Home() {
                   </div>
                   <div className="code-line">
                     &nbsp;&nbsp;
+                    <span className="code-var">company</span>
+                    <span className="code-punc">:</span>{" "}
+                    <span className="code-str">"Stack Builders"</span>
+                    <span className="code-punc">,</span>
+                  </div>
+                  <div className="code-line">
+                    &nbsp;&nbsp;
                     <span className="code-var">skills</span>
                     <span className="code-punc">: [</span>
                   </div>
                   <div className="code-line">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="code-str">"JavaScript"</span>
-                    <span className="code-punc">,</span>{" "}
                     <span className="code-str">"TypeScript"</span>
+                    <span className="code-punc">,</span>{" "}
+                    <span className="code-str">"React"</span>
                     <span className="code-punc">,</span>
                   </div>
                   <div className="code-line">
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="code-str">"React"</span>
-                    <span className="code-punc">,</span>{" "}
                     <span className="code-str">"Node.js"</span>
                     <span className="code-punc">,</span>{" "}
-                    <span className="code-str">"Ruby"</span>
+                    <span className="code-str">"GraphQL"</span>
                   </div>
                   <div className="code-line">
                     &nbsp;&nbsp;
@@ -94,9 +99,9 @@ function Home() {
                   </div>
                   <div className="code-line">
                     &nbsp;&nbsp;
-                    <span className="code-var">passion</span>
+                    <span className="code-var">focus</span>
                     <span className="code-punc">:</span>{" "}
-                    <span className="code-str">"gaming &amp; web"</span>
+                    <span className="code-str">"DX &amp; type safety"</span>
                     <span className="code-punc">,</span>
                   </div>
                   <div className="code-line">

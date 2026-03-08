@@ -37,25 +37,26 @@ function Home2() {
               LET ME <span className="cyan">INTRODUCE</span> MYSELF
             </h1>
             <p className="home-about-body" style={{ marginTop: "1.2rem" }}>
-              I fell in love with programming a long time ago and never looked
-              back. I'm a full-stack developer based in{" "}
-              <span className="cyan">Valencia, Spain</span>, with 2+ years of
-              experience building web applications — from streaming tools to
-              backend APIs.
+              I fell in love with programming and never looked back. I'm a
+              full-stack engineer based in{" "}
+              <span className="cyan">Valencia, Spain</span>, with 3+ years of
+              experience building scalable web applications in{" "}
+              <span className="cyan">international, remote-first teams</span>.
               <br />
               <br />
-              My core stack is{" "}
-              <span className="cyan">JavaScript, TypeScript, Ruby</span> — I
-              work across the full stack with{" "}
+              Currently at <span className="cyan">Stack Builders</span>, I've
+              worked with clients like Twilio, Thrv, and Communico — leading
+              frontend migrations, type safety overhauls, and DX improvements
+              across global teams.
+              <br />
+              <br />
+              I specialize in{" "}
+              <span className="cyan">TypeScript, React, and Node.js</span> —
+              with a strong focus on{" "}
               <span className="cyan">
-                React, Node.js, Next.js, and Ruby on Rails
+                developer experience, code quality, and testing
               </span>
-              .
-              <br />
-              <br />
-              When I'm not building, I'm gaming, streaming, or experimenting
-              with new technologies. I believe the best products are built by
-              people who actually <span className="cyan">care</span> about the
+              . I believe great software is built by people who care about the
               details.
             </p>
           </Col>

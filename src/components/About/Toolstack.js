@@ -6,6 +6,8 @@ import {
   SiSlack,
   SiVercel,
   SiDocker,
+  SiPrettier,
+  SiJira,
 } from "react-icons/si";
 import { DiGithubBadge } from "react-icons/di";
 import { FaFigma } from "react-icons/fa";
@@ -13,11 +15,13 @@ import { FaFigma } from "react-icons/fa";
 const tools = [
   { icon: <SiVisualstudiocode />, name: "VS Code" },
   { icon: <DiGithubBadge />, name: "GitHub" },
+  { icon: <SiPrettier />, name: "Prettier" },
   { icon: <SiPostman />, name: "Postman" },
   { icon: <SiVercel />, name: "Vercel" },
   { icon: <SiDocker />, name: "Docker" },
   { icon: <FaFigma />, name: "Figma" },
   { icon: <SiSlack />, name: "Slack" },
+  { icon: <SiJira />, name: "Jira" },
 ];
 
 function Toolstack() {
