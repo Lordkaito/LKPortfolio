@@ -4,24 +4,31 @@ import React, { useEffect, useRef, useState } from "react";
 const TESTIMONIALS = [
   {
     quote:
-      "Isaí has an exceptional ability to navigate complex codebases and deliver clean, maintainable solutions. His TypeScript expertise and attention to developer experience made a real difference on our team.",
-    name: "Placeholder — Colleague",
-    role: "Senior Engineer · Stack Builders",
-    initials: "JD",
-  },
-  {
-    quote:
-      "Working with Isaí on the Communico integration was great. He communicates clearly, ships on time, and always asks the right questions upfront. The kind of engineer every team wants.",
-    name: "Placeholder — Colleague",
+      "Isaí consistently supports teammates and contributes to team productivity by collaborating on complex features, helping unblock others, and refining tasks before implementation. He communicates proactively to resolve blockers with both the team and client, follows strong engineering practices, and demonstrates openness to feedback during code reviews.",
+    name: "Cristian Motoche",
     role: "Tech Lead · Stack Builders",
-    initials: "AK",
+    initials: "CM",
   },
   {
     quote:
-      "Isaí took ownership of the frontend migration end-to-end. He found patterns in the codebase that nobody else had documented and built tools to automate the fixes. Impressive.",
-    name: "Placeholder — Colleague",
-    role: "Engineering Manager · Stack Builders",
-    initials: "MR",
+      "Isaí takes strong ownership of the tasks he works on, asking the right questions and ensuring features are delivered polished and production-ready. He contributes positively to team collaboration, supports technical alignment between client and team, improves development workflows, and provides thoughtful code reviews at a peer engineering level.",
+    name: "Jota Martinez",
+    role: "Software Engineer · Stack Builders",
+    initials: "JM",
+  },
+  {
+    quote:
+      "Isaí consistently delivers high-quality work and is recognized as a reliable and collaborative engineer, making him a great teammate to work with across teams and projects.",
+    name: "Kieran",
+    role: "Client · Stack Builders",
+    initials: "KI",
+  },
+  {
+    quote:
+      "Isaí shows strong curiosity and initiative when improving the development environment, experimenting with tooling such as linters and editor extensions. He adapts quickly, learns fast, and provides reliable support during demanding periods while contributing to cleaner and more maintainable frontend code.",
+    name: "David Barrera",
+    role: "Tech Lead · Stack Builders",
+    initials: "DB",
   },
 ];
 
