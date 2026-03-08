@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     quote:
       "Isaí consistently delivers high-quality work and is recognized as a reliable and collaborative engineer, making him a great teammate to work with across teams and projects.",
     name: "Kieran",
-    role: "Client · Stack Builders",
+    role: "Client · Communico",
     initials: "KI",
   },
   {
@@ -41,7 +41,7 @@ function Testimonials() {
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setActive((a) => (a + 1) % TESTIMONIALS.length);
-    }, 5000);
+    }, 8000);
   };
 
   useEffect(() => {
@@ -106,9 +106,6 @@ function Testimonials() {
             />
           ))}
         </div>
-        <p className="testi-disclaimer reveal reveal-delay-4">
-          {"* Placeholders — to be replaced with verified testimonials"}
-        </p>
       </div>
     </section>
   );
