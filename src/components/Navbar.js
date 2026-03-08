@@ -24,6 +24,7 @@ function NavBar() {
           <li className="nav-link-item"><Link to="/about">about</Link></li>
           <li className="nav-link-item"><Link to="/project">projects</Link></li>
           <li className="nav-link-item"><Link to="/resume">resume</Link></li>
+          <li className="nav-link-item"><a href="/#contact">contact</a></li>
         </ul>
         <button
           className="nav-mobile-btn"
@@ -39,6 +40,7 @@ function NavBar() {
           <Link to="/about" onClick={close}><span className="gold">{"//"}</span> about</Link>
           <Link to="/project" onClick={close}><span className="gold">{"//"}</span> projects</Link>
           <Link to="/resume" onClick={close}><span className="gold">{"//"}</span> resume</Link>
+          <a href="/#contact" onClick={close}><span className="gold">{"//"}</span> contact</a>
         </div>
       )}
     </>
