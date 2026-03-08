@@ -54,7 +54,7 @@ function Projects() {
           <div className="prompt-text">
             &gt;_ my_projects<span className="cursor-blink">_</span>
           </div>
-          <p className="sub">// 6 projects · github.com/Lordkaito</p>
+          <p className="sub">{"// 6 projects · github.com/Lordkaito"}</p>
         </div>
         <div className="projects-grid">
           {projects.map((p, i) => (
