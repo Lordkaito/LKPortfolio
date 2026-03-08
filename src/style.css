@@ -548,3 +548,57 @@ body::before {
   .void-footer { flex-direction:column; align-items:flex-start; padding:2rem 1.5rem; }
   .about-container, .projects-container { padding:0 1.2rem; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   NEW SECTIONS — Home One-Page Expansion
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── Stats Section ──────────────────────────────────────────── */
+.stats-section {
+  position: relative; background: var(--void-3);
+  padding: 7rem 0; overflow: hidden;
+}
+.stats-grid-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.stats-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+@media(max-width: 900px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 500px) { .stats-row { grid-template-columns: 1fr; } }
+
+.stat-item {
+  text-align: center; padding: 2.5rem 1.5rem;
+  border: 1px solid var(--border);
+  background: rgba(10,10,26,0.5);
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.stat-item::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--gold-glow) 0%, transparent 70%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.stat-item:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 12px 40px var(--gold-glow); }
+.stat-item:hover::before { opacity: 1; }
+
+.stat-number {
+  font-family: var(--font-display); font-size: clamp(3.5rem, 7vw, 6rem);
+  color: var(--gold); line-height: 1;
+  text-shadow: 0 0 40px var(--gold-glow-lg), 0 0 80px var(--gold-glow);
+  letter-spacing: 0.02em;
+}
+.stat-label {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2rem;
+  text-transform: uppercase; color: var(--text); margin-top: 0.7rem;
+}
+.stat-sub {
+  font-family: var(--font-body); font-size: 0.75rem; color: var(--text-dim);
+  margin-top: 0.35rem;
+}
