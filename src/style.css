@@ -3,13 +3,6 @@
    Portfolio: Isai Cespedes (LordKaito)
    ============================================ */
 
-/* Fonts */
-@import "@fontsource/jetbrains-mono/400.css";
-@import "@fontsource/jetbrains-mono/700.css";
-@import "@fontsource/dm-sans/400.css";
-@import "@fontsource/dm-sans/500.css";
-@import "@fontsource/space-mono/400.css";
-
 /* CSS Variables */
 html {
   --bg-primary:     #050a0f;
