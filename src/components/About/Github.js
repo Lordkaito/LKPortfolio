@@ -9,7 +9,7 @@ function Github() {
       className="github-calendar-section"
     >
       <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
-        <span className="cyan">// </span>days i code
+        <span className="cyan">{"// "}</span>days i code
       </h1>
       <GitHubCalendar
         username="Lordkaito"

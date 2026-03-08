@@ -32,7 +32,7 @@ function Home2() {
           </Col>
 
           <Col md={8} className="home-about-description">
-            <p className="section-label">// about me</p>
+            <p className="section-label">{"// "}about me</p>
             <h1 style={{ fontSize: "2rem" }}>
               LET ME <span className="cyan">INTRODUCE</span> MYSELF
             </h1>
@@ -68,7 +68,7 @@ function Home2() {
               className="section-label"
               style={{ justifyContent: "center", display: "flex" }}
             >
-              // find me on
+              {"// "}find me on
             </p>
             <ul className="home-about-social-links">
               <li>

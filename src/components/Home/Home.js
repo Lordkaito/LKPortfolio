@@ -13,7 +13,7 @@ function Home() {
             style={{ minHeight: "calc(100vh - 80px)" }}
           >
             <Col md={6} className="fade-up fade-up-1">
-              <p className="heading-label">// full-stack developer</p>
+              <p className="heading-label">{"// "}full-stack developer</p>
               <h1 className="heading-name">
                 ISAI
                 <strong className="main-name">CESPEDES</strong>

@@ -62,7 +62,7 @@ function Projects() {
             &gt;_ my_projects
             <span className="cursor-blink">_</span>
           </h1>
-          <p>// 6 projects &middot; github.com/Lordkaito</p>
+          <p>{"// "}6 projects &middot; github.com/Lordkaito</p>
         </div>
 
         <Row style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>

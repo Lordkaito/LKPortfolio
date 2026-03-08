@@ -18,7 +18,7 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <p className="section-label">// who am i</p>
+            <p className="section-label">{"// "}who am i</p>
             <h1
               style={{
                 fontSize: "2rem",
@@ -40,12 +40,12 @@ function About() {
         </Row>
 
         <h1 className="project-heading">
-          <span className="cyan">// </span>professional skillset
+          <span className="cyan">{"// "}</span>professional skillset
         </h1>
         <Techstack />
 
         <h1 className="project-heading">
-          <span className="cyan">// </span>tools i use
+          <span className="cyan">{"// "}</span>tools i use
         </h1>
         <Toolstack />
 
