@@ -140,8 +140,8 @@ function Home() {
             <p className="hero-label">{"//"} full-stack developer</p>
 
             <div className="hero-name-wrap">
-              <span className="hero-name">ISAÍ</span>
-              <span className="hero-name-outline">CÉSPEDES</span>
+              <span className="hero-name">ISAI</span>
+              <span className="hero-name-outline">CESPEDES</span>
               {/* Glitch layers */}
               <span className="glitch-layer-1" aria-hidden="true">
                 <span style={{ display: "block", lineHeight: 0.9 }}>ISAÍ</span>
