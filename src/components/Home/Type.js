@@ -7,14 +7,15 @@ function Type() {
       options={{
         strings: [
           "Full-Stack Engineer",
-          "TypeScript Specialist",
+          "TypeScript Architect",
           "Developer Experience Advocate",
           "React & Node.js Builder",
+          "Remote-First Collaborator",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 40,
-        delay: 60,
+        deleteSpeed: 35,
+        delay: 55,
       }}
     />
   );

@@ -1,124 +1,235 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useRef } from "react";
 import Home2 from "./Home2";
 import Type from "./Type";
+import { Link } from "react-router-dom";
+
+function initParticles(canvas) {
+  const ctx = canvas.getContext("2d");
+  let W = (canvas.width = canvas.offsetWidth);
+  let H = (canvas.height = canvas.offsetHeight);
+  let mouse = { x: W / 2, y: H / 2 };
+
+  const COUNT = 90;
+  const LINK_DIST = 130;
+  const ATTRACT = 0.012;
+
+  const particles = Array.from({ length: COUNT }, () => ({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+    r: Math.random() * 1.5 + 0.5,
+    alpha: Math.random() * 0.5 + 0.2,
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (let i = 0; i < COUNT; i++) {
+      const p = particles[i];
+      // soft attract toward mouse
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 250) {
+        p.vx += (dx / dist) * ATTRACT;
+        p.vy += (dy / dist) * ATTRACT;
+      }
+
+      // dampen velocity
+      p.vx *= 0.98;
+      p.vy *= 0.98;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // wrap around
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      // draw particle
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+      ctx.fill();
+
+      // draw links
+      for (let j = i + 1; j < COUNT; j++) {
+        const q = particles[j];
+        const lx = p.x - q.x;
+        const ly = p.y - q.y;
+        const d = Math.sqrt(lx * lx + ly * ly);
+        if (d < LINK_DIST) {
+          const opacity = (1 - d / LINK_DIST) * 0.25;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(212, 175, 55, ${opacity})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // cyan accent dots near mouse
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0, 255, 240, 0.3)";
+    ctx.fill();
+  }
+
+  let raf;
+  function loop() {
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+  loop();
+
+  const onResize = () => {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  };
+  const onMove = (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  };
+
+  window.addEventListener("resize", onResize, { passive: true });
+  window.addEventListener("mousemove", onMove, { passive: true });
+
+  return () => {
+    cancelAnimationFrame(raf);
+    window.removeEventListener("resize", onResize);
+    window.removeEventListener("mousemove", onMove);
+  };
+}
 
 function Home() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const cleanup = initParticles(canvas);
+    return cleanup;
+  }, []);
+
   return (
     <section>
-      <Container fluid className="home-section dot-grid-bg" id="home">
-        <Container className="home-content">
-          <Row
-            className="align-items-center"
-            style={{ minHeight: "calc(100vh - 80px)" }}
-          >
-            <Col md={6} className="fade-up fade-up-1">
-              <p className="heading-label">{"// "}full-stack developer</p>
-              <h1 className="heading-name">
-                ISAI
-                <strong className="main-name">CESPEDES</strong>
-              </h1>
-              <div className="type-wrapper">
-                <Type />
-              </div>
-              <div style={{ marginTop: "2rem" }}>
-                <a href="/project" className="btn-terminal filled">
-                  [ View Projects ]
-                </a>
-                <a
-                  href="/CV.pdf"
-                  className="btn-terminal"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  [ Download CV ]
-                </a>
-              </div>
-            </Col>
+      <div className="hero-section">
+        {/* 3D Grid Background */}
+        <div className="grid-3d-bg" />
 
-            <Col
-              md={6}
-              className="fade-up fade-up-3 d-none d-md-block"
-              style={{ paddingLeft: "2rem" }}
-            >
-              <div className="code-block-deco">
-                <div className="cb-header">
-                  <span className="dot dot-red"></span>
-                  <span className="dot dot-yellow"></span>
-                  <span className="dot dot-green"></span>
-                  <span className="cb-filename">developer.js</span>
-                </div>
-                <div className="cb-body">
-                  <div className="code-line">
-                    <span className="code-kw">const</span>{" "}
-                    <span className="code-var">developer</span>{" "}
-                    <span className="code-punc">= &#123;</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-var">name</span>
-                    <span className="code-punc">:</span>{" "}
-                    <span className="code-str">"Isai Cespedes"</span>
-                    <span className="code-punc">,</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-var">location</span>
-                    <span className="code-punc">:</span>{" "}
-                    <span className="code-str">"Valencia, Spain"</span>
-                    <span className="code-punc">,</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-var">company</span>
-                    <span className="code-punc">:</span>{" "}
-                    <span className="code-str">"Stack Builders"</span>
-                    <span className="code-punc">,</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-var">skills</span>
-                    <span className="code-punc">: [</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="code-str">"TypeScript"</span>
-                    <span className="code-punc">,</span>{" "}
-                    <span className="code-str">"React"</span>
-                    <span className="code-punc">,</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span className="code-str">"Node.js"</span>
-                    <span className="code-punc">,</span>{" "}
-                    <span className="code-str">"GraphQL"</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-punc">],</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-var">focus</span>
-                    <span className="code-punc">:</span>{" "}
-                    <span className="code-str">"DX &amp; type safety"</span>
-                    <span className="code-punc">,</span>
-                  </div>
-                  <div className="code-line">
-                    &nbsp;&nbsp;
-                    <span className="code-var">available</span>
-                    <span className="code-punc">:</span>{" "}
-                    <span className="code-cyan">true</span>
-                  </div>
-                  <div className="code-line">
-                    <span className="code-punc">&#125;;</span>
-                  </div>
-                </div>
+        {/* Particle Canvas */}
+        <canvas
+          ref={canvasRef}
+          className="hero-canvas"
+          style={{ width: "100%", height: "100%" }}
+        />
+
+        <div className="hero-content">
+          {/* Left — Name + Type + CTA */}
+          <div>
+            <p className="hero-label">{"//"} full-stack developer</p>
+
+            <div className="hero-name-wrap">
+              <span className="hero-name">ISAÍ</span>
+              <span className="hero-name-outline">CÉSPEDES</span>
+              {/* Glitch layers */}
+              <span className="glitch-layer-1" aria-hidden="true">
+                <span style={{ display: "block", lineHeight: 0.9 }}>ISAÍ</span>
+                <span style={{ display: "block", lineHeight: 0.9 }}>CÉSPEDES</span>
+              </span>
+              <span className="glitch-layer-2" aria-hidden="true">
+                <span style={{ display: "block", lineHeight: 0.9 }}>ISAÍ</span>
+                <span style={{ display: "block", lineHeight: 0.9 }}>CÉSPEDES</span>
+              </span>
+            </div>
+
+            <div className="hero-type-wrap">
+              <Type />
+            </div>
+
+            <div className="hero-cta">
+              <Link to="/project" className="btn-void">
+                [ View Projects ]
+              </Link>
+              <a
+                href="/CV.pdf"
+                className="btn-void-outline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                [ Download CV ]
+              </a>
+            </div>
+          </div>
+
+          {/* Right — Code Block */}
+          <div className="hero-code-block">
+            <div className="code-block-header">
+              <span className="cb-dot cb-dot-r" />
+              <span className="cb-dot cb-dot-y" />
+              <span className="cb-dot cb-dot-g" />
+              <span className="cb-filename">developer.void</span>
+            </div>
+            <div className="code-block-body">
+              <div className="code-line">
+                <span className="c-kw">const</span>{" "}
+                <span className="c-var">engineer</span>{" "}
+                <span className="c-punc">= &#123;</span>
               </div>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-key">name</span>
+                <span className="c-punc">:</span>{" "}
+                <span className="c-str">"Isaí Céspedes"</span><span className="c-punc">,</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-key">location</span>
+                <span className="c-punc">:</span>{" "}
+                <span className="c-str">"Valencia, Spain"</span><span className="c-punc">,</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-key">company</span>
+                <span className="c-punc">:</span>{" "}
+                <span className="c-str">"Stack Builders"</span><span className="c-punc">,</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-key">stack</span>
+                <span className="c-punc">: [</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="c-str">"TypeScript"</span>
+                <span className="c-punc">,</span>{" "}
+                <span className="c-str">"React"</span><span className="c-punc">,</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;&nbsp;&nbsp;<span className="c-str">"Node.js"</span>
+                <span className="c-punc">,</span>{" "}
+                <span className="c-str">"GraphQL"</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-punc">],</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-key">focus</span>
+                <span className="c-punc">:</span>{" "}
+                <span className="c-str">"DX &amp; type safety"</span><span className="c-punc">,</span>
+              </div>
+              <div className="code-line">
+                &nbsp;&nbsp;<span className="c-key">available</span>
+                <span className="c-punc">:</span>{" "}
+                <span className="c-bool">true</span>
+              </div>
+              <div className="code-line">
+                <span className="c-punc">&#125;;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Home2 />
     </section>
   );

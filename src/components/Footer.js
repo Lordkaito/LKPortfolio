@@ -1,55 +1,33 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
-  let year = new Date().getFullYear();
+  const year = new Date().getFullYear();
   return (
-    <Container fluid className="footer">
-      <Row className="align-items-center justify-content-between">
-        <Col md={4} className="footer-copywright">
-          <h3>
-            designed &amp; built by{" "}
-            <span style={{ color: "var(--accent-primary)" }}>lordkaito_</span>
-          </h3>
-        </Col>
-        <Col md={4} className="footer-copywright">
-          <h3>© {year} isai cespedes</h3>
-        </Col>
-        <Col md={4} className="footer-body">
-          <ul className="footer-icons">
-            <li>
-              <a
-                href="https://github.com/Lordkaito"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillGithub />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/Lordkaito_"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiOutlineTwitter />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/isaicespedes/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedinIn />
-              </a>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="void-footer">
+      <div className="footer-brand">
+        designed & built by <strong>isaí céspedes</strong>
+      </div>
+      <div className="footer-year">© {year}</div>
+      <ul className="footer-socials">
+        <li>
+          <a href="https://github.com/Lordkaito" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <AiFillGithub />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/Lordkaito_" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <AiOutlineTwitter />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/isaicespedes/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FaLinkedinIn />
+          </a>
+        </li>
+      </ul>
+    </footer>
   );
 }
 

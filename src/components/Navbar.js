@@ -1,96 +1,47 @@
-import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
-  window.addEventListener("scroll", scrollHandler);
+  const close = () => setOpen(false);
 
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
-      <Container>
-        <Navbar.Brand href="/" className="d-flex align-items-center">
-          <span className="prompt">&gt;_</span>
-          <span>lk.dev</span>
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+    <>
+      <nav className={`void-nav${scrolled ? " scrolled" : ""}`}>
+        <Link to="/" className="nav-logo" onClick={close}>
+          [ LC ]
+        </Link>
+        <ul className="nav-links">
+          <li className="nav-link-item"><Link to="/">home</Link></li>
+          <li className="nav-link-item"><Link to="/about">about</Link></li>
+          <li className="nav-link-item"><Link to="/project">projects</Link></li>
+          <li className="nav-link-item"><Link to="/resume">resume</Link></li>
+        </ul>
+        <button
+          className="nav-mobile-btn"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> about
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> resume
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          {open ? "[ CLOSE ]" : "[ MENU ]"}
+        </button>
+      </nav>
+      {open && (
+        <div className="nav-mobile-menu">
+          <Link to="/" onClick={close}><span className="gold">{"//"}</span> home</Link>
+          <Link to="/about" onClick={close}><span className="gold">{"//"}</span> about</Link>
+          <Link to="/project" onClick={close}><span className="gold">{"//"}</span> projects</Link>
+          <Link to="/resume" onClick={close}><span className="gold">{"//"}</span> resume</Link>
+        </div>
+      )}
+    </>
   );
 }
 

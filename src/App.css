@@ -1,6 +1,16 @@
-/* App.css — Terminal Architect */
+/* App.css — VOID.EXE */
 .App {
   text-align: left;
-  background-color: var(--bg-primary);
+  background-color: var(--void);
   min-height: 100vh;
+}
+
+#no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Force cursor:none everywhere including Bootstrap elements */
+*, *::before, *::after {
+  cursor: none !important;
 }

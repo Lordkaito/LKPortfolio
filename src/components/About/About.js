@@ -1,57 +1,32 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import Github from "./Github";
 import Techstack from "./Techstack";
-import Aboutcard from "./AboutCard";
+import AboutCard from "./AboutCard";
 import Toolstack from "./Toolstack";
 
 function About() {
   return (
-    <Container fluid className="about-section">
-      <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
-          >
-            <p className="section-label">{"// "}who am i</p>
-            <h1
-              style={{
-                fontSize: "2rem",
-                fontFamily: "var(--font-mono)",
-                paddingBottom: "20px",
-                color: "var(--text-primary)",
-              }}
-            >
-              Know Who <span className="cyan">I'M</span>
-            </h1>
-            <Aboutcard />
-          </Col>
-          <Col
-            md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className="about-img"
-          >
-          </Col>
-        </Row>
-
-        <h1 className="project-heading">
-          <span className="cyan">{"// "}</span>professional skillset
+    <div className="about-page">
+      <div className="about-container">
+        <p className="section-eyebrow">{"//"} who am i</p>
+        <h1 className="section-title" style={{ marginBottom: "2rem" }}>
+          KNOW WHO <span className="gold">I'M</span>
         </h1>
+        <AboutCard />
+
+        <h2 className="skills-section-title">
+          <span className="gold">{"//"} </span>Professional Skillset
+        </h2>
         <Techstack />
 
-        <h1 className="project-heading">
-          <span className="cyan">{"// "}</span>tools i use
-        </h1>
+        <h2 className="skills-section-title">
+          <span className="gold">{"//"} </span>Tools I Use
+        </h2>
         <Toolstack />
 
         <Github />
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
 

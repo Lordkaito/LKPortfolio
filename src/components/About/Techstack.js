@@ -1,24 +1,10 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import {
-  DiJavascript1,
-  DiReact,
-  DiNodejs,
-  DiMongodb,
-  DiGit,
-  DiRuby,
+  DiJavascript1, DiReact, DiNodejs, DiMongodb, DiGit, DiRuby,
 } from "react-icons/di";
 import {
-  SiNextdotjs,
-  SiTypescript,
-  SiRedux,
-  SiPostgresql,
-  SiRubyonrails,
-  SiExpress,
-  SiGraphql,
-  SiJest,
-  SiPhp,
-  SiEslint,
+  SiNextdotjs, SiTypescript, SiRedux, SiPostgresql, SiRubyonrails,
+  SiExpress, SiGraphql, SiJest, SiPhp, SiEslint,
 } from "react-icons/si";
 
 const skills = [
@@ -42,16 +28,14 @@ const skills = [
 
 function Techstack() {
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      {skills.map((skill, i) => (
-        <Col xs={4} md={2} className="tech-icons" key={i}>
-          <div className="tech-icon-wrapper">
-            {skill.icon}
-            <span>{skill.name}</span>
-          </div>
-        </Col>
+    <div className="skills-grid">
+      {skills.map((s, i) => (
+        <div className="skill-card" key={i}>
+          {s.icon}
+          <span>{s.name}</span>
+        </div>
       ))}
-    </Row>
+    </div>
   );
 }
 

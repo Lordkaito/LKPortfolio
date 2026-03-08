@@ -20,31 +20,51 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [load, updateLoad] = useState(true);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       updateLoad(false);
-    }, 1200);
+    }, 1900);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const moveCursor = (e) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
+    const moveCursor = (e) => setCursorPos({ x: e.clientX, y: e.clientY });
+    const onOver = (e) => {
+      const t = e.target;
+      if (
+        t.tagName === "A" || t.tagName === "BUTTON" ||
+        t.closest("a") || t.closest("button") ||
+        t.classList.contains("proj-card") ||
+        t.classList.contains("skill-card")
+      ) {
+        setHovered(true);
+      } else {
+        setHovered(false);
+      }
     };
-    window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", moveCursor, { passive: true });
+    window.addEventListener("mouseover", onOver, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mouseover", onOver);
+    };
   }, []);
 
   return (
     <Router>
-      {/* Custom cursor */}
+      {/* VOID.EXE Crosshair Cursor */}
       <div
-        className="custom-cursor"
+        className="cursor-crosshair"
         style={{ left: cursorPos.x, top: cursorPos.y }}
-      />
+      >
+        <span className="ch-h" />
+        <span className="ch-v" />
+        <span className="ch-dot" />
+      </div>
       <div
-        className="custom-cursor-ring"
+        className={`cursor-ring${hovered ? " hovered" : ""}`}
         style={{ left: cursorPos.x, top: cursorPos.y }}
       />
 
