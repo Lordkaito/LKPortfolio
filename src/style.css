@@ -712,3 +712,9 @@ body::before {
   .exp-line-col { display: none; }
   .exp-meta { text-align: left; align-items: flex-start; margin-top: 0.5rem; }
 }
+
+/* ─── Featured Projects ──────────────────────────────────────── */
+.fp-section { background: var(--void); padding: 7rem 0; }
+.fp-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.fp-grid { margin-bottom: 3rem; }
+.fp-cta { text-align: center; }
