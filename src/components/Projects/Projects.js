@@ -1,83 +1,76 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
-import Particle from "../Particle";
+
+const projects = [
+  {
+    title: "Web Crawler",
+    description:
+      "Web crawler built with Puppeteer that extracts data from Hacker News (YCombinator). Supports filtering by comments, points, or viewing all articles.",
+    ghLink: "https://github.com/Lordkaito/web-crawler",
+    lang: "JS",
+    pattern: 1,
+  },
+  {
+    title: "Multichattt",
+    description:
+      "Watch multiple Twitch streams and their chats simultaneously. Built with React and TypeScript, uses the Twitch API for stream data and chat integration.",
+    ghLink: "https://github.com/Lordkaito/multichattt",
+    lang: "TS",
+    pattern: 2,
+  },
+  {
+    title: "Transcripthorrr",
+    description:
+      "Python Flask server that uses AI to transcribe audio to text. Exposes two endpoints — one for quick transcription and one for higher accuracy.",
+    ghLink: "https://github.com/Lordkaito/transcripthorrr",
+    lang: "PY",
+    pattern: 3,
+  },
+  {
+    title: "Budget",
+    description:
+      "A personal expense tracker built with Ruby. Track daily and monthly spending, add purchase notes, manage user accounts — create, edit, and delete.",
+    ghLink: "https://github.com/Lordkaito/budget",
+    lang: "RB",
+    pattern: 1,
+  },
+  {
+    title: "Car Rental Backend",
+    description:
+      "Ruby backend API for managing a car rental service. Full CRUD for cars, customers, and rentals. Search by brand, model, year, and price.",
+    ghLink: "https://github.com/Lordkaito/final-capstone-backend",
+    lang: "RB",
+    pattern: 2,
+  },
+  {
+    title: "Bwidgets",
+    description:
+      "Online platform for Twitch streamers to discover, preview, and acquire custom stream widgets. Built with React and TypeScript.",
+    ghLink: "https://github.com/Lordkaito/bwidgets-frontend",
+    lang: "TS",
+    pattern: 3,
+  },
+];
 
 function Projects() {
   return (
     <Container fluid className="project-section">
-      <Particle />
       <Container>
-        <h1 className="project-heading">
-          My Recent <strong className="purple">Works </strong>
-        </h1>
-        <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
-        </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              // imgPath={chatify}
-              isBlog={false}
-              title="Web Crawler"
-              description="A web crawler built with JavaScript using puppeteer. It using the ycombinator website as a base, extracts information from the articles and allows you to filter them by comments, points or show them all."
-              ghLink="https://github.com/Lordkaito/web-crawler"
-              // demoLink="https://chatify-49.web.app/"
-            />
-          </Col>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              // imgPath={chatify}
-              isBlog={false}
-              title="Multichattt"
-              description="A website built to allow you to see many twitch chats at the same time, including the streams of those users. Built with React and Typescript, it uses the twitch API to get the information of the streams and the chat."
-              ghLink="https://github.com/Lordkaito/multichattt"
-              // demoLink="https://chatify-49.web.app/"
-            />
-          </Col>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              // imgPath={chatify}
-              isBlog={false}
-              title="Transcripthorrr"
-              description="A simple Python server that uses AI to transcript audio to text. This version uses two endpoints in an API depending if you want a quick transcription or a more accurate one. Built with Flask Python"
-              ghLink="https://github.com/Lordkaito/transcripthorrr"
-              // demoLink="https://chatify-49.web.app/"
-            />
-          </Col>
+        <div className="project-section-header">
+          <h1 className="prompt">
+            &gt;_ my_projects
+            <span className="cursor-blink">_</span>
+          </h1>
+          <p>// 6 projects &middot; github.com/Lordkaito</p>
+        </div>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              // imgPath={bitsOfCode}
-              isBlog={false}
-              title="Budget"
-              description="An app to help you track your daily and monthly expenses, allowing you to add all the purchases you do, date and adding notes to it. You can login, create a new account, edit your profile and delete it. Built with Ruby"
-              ghLink="https://github.com/Lordkaito/budget"
-              // demoLink="https://blogs.soumya-jit.tech/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              // imgPath={editor}
-              isBlog={false}
-              title="Car rental backend"
-              description="Backend built with Ruby to manage a car rental company. It allows you to create, edit and delete cars, customers and rentals. It also allows you to search for cars by brand, model, year and price."
-              ghLink="https://github.com/Lordkaito/final-capstone-backend"
-              // demoLink="https://editor.soumya-jit.tech/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              // imgPath={leaf}
-              isBlog={false}
-              title="Bwidgets"
-              description="An online platform to store and showcase some custom widgets for twitch streamers. Built with React and Typescript this app allows you to see, test and buy widgets for your stream"
-              ghLink="https://github.com/Lordkaito/bwidgets-frontend"
-              // demoLink="https://plant49-ai.herokuapp.com/"
-            />
-          </Col>
+        <Row style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+          {projects.map((proj, i) => (
+            <Col md={4} className="project-card-item" key={i}>
+              <ProjectCard {...proj} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </Container>
