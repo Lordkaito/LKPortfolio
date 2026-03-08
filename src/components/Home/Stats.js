@@ -12,15 +12,17 @@ function useCountUp(target, duration = 1800, started) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!started) return;
+    let rafId;
     let startTime = null;
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) rafId = requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
   }, [target, duration, started]);
   return count;
 }
@@ -28,7 +30,7 @@ function useCountUp(target, duration = 1800, started) {
 function StatItem({ value, suffix, label, sub, started, index }) {
   const count = useCountUp(value, 1800 + index * 200, started);
   return (
-    <div className="stat-item reveal" style={{ transitionDelay: `${index * 0.12}s` }}>
+    <div className={`stat-item reveal reveal-delay-${index + 1}`}>
       <div className="stat-number">
         {count}{suffix}
       </div>
@@ -69,7 +71,7 @@ function Stats() {
         </h2>
         <div className="stats-row">
           {STATS.map((s, i) => (
-            <StatItem key={i} {...s} started={started} index={i} />
+            <StatItem key={s.label} {...s} started={started} index={i} />
           ))}
         </div>
       </div>
