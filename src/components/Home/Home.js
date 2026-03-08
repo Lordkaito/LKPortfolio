@@ -2,6 +2,12 @@ import React, { useEffect, useRef } from "react";
 import Home2 from "./Home2";
 import Type from "./Type";
 import { Link } from "react-router-dom";
+import Stats from "./Stats";
+import WhatIBuild from "./WhatIBuild";
+import ExperienceTimeline from "./ExperienceTimeline";
+import FeaturedProjects from "./FeaturedProjects";
+import Testimonials from "./Testimonials";
+import ContactCTA from "./ContactCTA";
 
 function initParticles(canvas) {
   const ctx = canvas.getContext("2d");
@@ -231,6 +237,12 @@ function Home() {
       </div>
 
       <Home2 />
+      <Stats />
+      <WhatIBuild />
+      <ExperienceTimeline />
+      <FeaturedProjects />
+      <Testimonials />
+      <ContactCTA />
     </section>
   );
 }
